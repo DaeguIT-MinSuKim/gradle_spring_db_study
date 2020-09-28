@@ -1,8 +1,10 @@
 package gradle_spring_db_study;
 
 import java.io.IOException;
+import java.util.List;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import gradle_spring_db_study.config.AppCtx;
@@ -20,7 +22,23 @@ public class MainForDataSource {
             memberDao = ctx.getBean(MemberDao.class);
             
             selectByEmail();
+            selectAll();
+            selectCount();
         }
+    }
+
+    
+    private static void selectCount() {
+        System.out.println("selectCount()");
+        int count = memberDao.count();
+        System.out.println("count > " + count);
+    }
+
+
+    private static void selectAll() {
+        System.out.println("selectAll()");
+        List<Member> list = memberDao.selectAll();
+        list.stream().forEach(System.out::println);
     }
 
     private static void selectByEmail() {

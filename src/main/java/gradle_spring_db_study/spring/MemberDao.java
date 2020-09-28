@@ -31,8 +31,14 @@ public class MemberDao {
         
     }
     
+    /* 결과가 1개 이상인 경우 */
     public List<Member> selectAll() {
-        return null;
+        return jdbcTemplate.query("SELECT ID, EMAIL, PASSWORD, NAME, REGDATE FROM MEMBER", new MemberRowMapper());
+    }
+    
+    /* 결과가 1개 인 경우 */
+    public int count() {
+        return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM MEMBER", Integer.class);
     }
     
     /*private static long nextId = 0;

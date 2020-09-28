@@ -55,11 +55,17 @@ public class Member {
     public void setRegisterDateTime(LocalDateTime registerDateTime) {
         this.registerDateTime = registerDateTime;
     }
-    
+
     public void changePassword(String oldPassword, String newPassword) {
         if (!password.equals(oldPassword))
             throw new WrongIdPasswordException();
         this.password = newPassword;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Member [id=%s, email=%s, password=%s, name=%s, registerDateTime=%s]", id, email, password,
+                name, registerDateTime);
     }
 
 }
