@@ -29,15 +29,15 @@ public class MainForDataSource {
 
             // selectByEmail();
             // selectAll();
-            // selectCount();
+             selectCount();
 
-            selectAll();
-            insertMember();
-            selectAll();
-            updateMember();
-            selectAll();
-            deleteMember();
-            selectAll();
+             /* selectAll();
+              insertMember();
+              selectAll();
+              updateMember();
+              selectAll();
+              deleteMember();
+              selectAll();*/
 
         }
     }
