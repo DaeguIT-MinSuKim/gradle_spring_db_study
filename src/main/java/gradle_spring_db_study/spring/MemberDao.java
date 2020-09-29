@@ -27,7 +27,10 @@ public class MemberDao {
     /* 결과가 1개 인 경우 */
     public Member selectByEmail(String email) {
         String sql = "SELECT ID, EMAIL, PASSWORD, NAME, REGDATE FROM MEMBER WHERE EMAIL = ?";
-        return jdbcTemplate.queryForObject(sql, new MemberRowMapper(), email);
+        return  jdbcTemplate.queryForObject(sql, new MemberRowMapper(), email);
+        /*        List<Member> results = jdbcTemplate.query("select * from member where email = ?", new MemberRowMapper(), email);
+        return results.isEmpty()?null:results.get(0);*/
+
     }
     
     /* 결과가 1개 이상인 경우 */
